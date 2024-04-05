@@ -346,7 +346,8 @@ df-messenger {
 }
 
 .skill-modal-content {
-    text-align: center;
+    max-height: 80vh; /* Limit height to avoid going out of view */
+    overflow-y: auto; /* Enable vertical scrolling if content overflows */
 }
 
 .skill-modal-close {
@@ -560,18 +561,22 @@ df-messenger {
     .about-text, .about-img {
         flex-basis: 100%; /* Allows each to take full width of the container */
     }
-
+    .bubble {
+        width: 80px; /* Smaller size for small screens */
+        height: 80px;
+        font-size: 0.8em; /* Adjust font size inside bubbles */
+    }
+    #pinwheelContainer {
+        overflow-x: auto; /* Enable horizontal scrolling */
+        display: flex;
+        flex-wrap: nowrap; /* Prevent bubbles from wrapping */
+    }
     .about-img img {
         max-width: 30%; /* Adjust this value as needed */
         margin: 0 auto; /* Center the image */
     }
     .btn {
         padding: 10px 15px; /* Adjust button padding for smaller screens */
-    }
-    .project {
-        transform: scale(0.8); /* Smaller scale for all projects */
-        max-width: 300px; /* Adjust max-width for smaller screens */
-        margin: 10px auto; /* Ensure some margin around the projects */
     }
 
     .focused {
@@ -581,11 +586,17 @@ df-messenger {
     }
 
     /* Ensures projects carousel fits the screen */
-    #projects-carousel {
-        flex-direction: column; /* Stack projects vertically */
-        align-items: center; /* Center-align the projects */
-    }
 
+    #projects-carousel {
+        overflow-x: auto; /* Enable horizontal scrolling */
+        display: flex;
+        flex-wrap: nowrap; /* Keep projects in a single row */
+    }
+    .project {
+        width: 80%; /* Adjust width for smaller screens */
+        min-width: 250px; /* Ensure projects don't get too small */
+        margin-right: 20px; /* Space between projects */
+    }
     .project:not(.focused) {
         /* Slightly reduce the opacity of non-focused projects for emphasis */
         opacity: 0.5;
