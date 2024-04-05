@@ -397,6 +397,8 @@ df-messenger {
     max-width: 600px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     animation: slideDown 0.5s ease-out forwards;
+    max-height: 80vh; /* Limit the height to 80% of the viewport height */
+    overflow-y: auto; /* Allow vertical scrolling */
 }
 /* Add to your existing CSS */
 .skill-modal ul {
@@ -428,11 +430,6 @@ df-messenger {
     color: #333;
 }
 
-/* Ensure modal content is properly styled */
-.skill-modal {
-    color: #ffffff;
-    background: #25044f;
-}
 
 .light-mode .skill-modal {
     background: #ebecf0;
@@ -538,6 +535,9 @@ df-messenger {
     .intro-text, .intro-img {
         flex-basis: 100%;
     }
+    .skill-modal {
+        width: 95%; /* Make the modal wider on smaller screens */
+    }
     nav .right ul {
         display: flex;
         flex-direction: row; /* Ensure horizontal layout */
@@ -561,15 +561,18 @@ df-messenger {
     .about-text, .about-img {
         flex-basis: 100%; /* Allows each to take full width of the container */
     }
-    .bubble {
-        width: 80px; /* Smaller size for small screens */
-        height: 80px;
-        font-size: 0.8em; /* Adjust font size inside bubbles */
-    }
     #pinwheelContainer {
-        overflow-x: auto; /* Enable horizontal scrolling */
         display: flex;
-        flex-wrap: nowrap; /* Prevent bubbles from wrapping */
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .bubble {
+        width: 80px; /* Reduce size */
+        height: 80px; /* Reduce size */
+        margin: 5px; /* Add some margin for spacing */
+        font-size: 0.8em; /* Adjust font size inside the bubble */
     }
     .about-img img {
         max-width: 30%; /* Adjust this value as needed */
@@ -587,10 +590,20 @@ df-messenger {
 
     /* Ensures projects carousel fits the screen */
 
+    #projects-carousel .project {
+        max-width: 95%; /* Allow the project to occupy more width */
+        margin: 10px auto; /* Center the project */
+        transform: scale(1); /* Reset any scaling */
+    }
+
     #projects-carousel {
-        overflow-x: auto; /* Enable horizontal scrolling */
+        overflow-x: auto; /* Allow horizontal scrolling */
         display: flex;
-        flex-wrap: nowrap; /* Keep projects in a single row */
+        flex-wrap: nowrap; /* Keep items in a single row */
+    }
+
+    .project-img {
+        max-width: 100%; /* Ensure the image fits within the project container */
     }
     .project {
         width: 80%; /* Adjust width for smaller screens */
@@ -601,12 +614,6 @@ df-messenger {
         /* Slightly reduce the opacity of non-focused projects for emphasis */
         opacity: 0.5;
     }
-
-    .project-img {
-        width: 80%; /* Larger images on small screens */
-      }
-    
-    
       .project-links a {
         padding: 6px 10px; /* Adjust padding for smaller screens */
       }
