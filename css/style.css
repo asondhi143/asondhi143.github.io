@@ -1,0 +1,606 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Proza Libre', sans-serif;
+    background-color: #25044f;
+    color: #fff;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: #222;
+    z-index: 1000;
+    color:white;
+}
+
+nav {
+    width: 100%;
+    max-width: 1200px; /* Adjust based on your preference */
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color:#8060ff;
+}
+
+nav .left {
+    flex-grow: 1;
+    font-size: 1.2rem;
+}
+
+nav .right {
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 3;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin-right: 20px; /* Adjust spacing between menu items */
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px; /* Adjust padding as needed */
+}
+
+
+nav ul li a:hover {
+    color:#8060ff;
+}
+h3 {
+    font-family: 'Proza Libre', sans-serif;
+}
+h1 {
+    font-family: "Cinzel", serif;
+}
+h2 {
+    font-family: "Cinzel", serif;
+    margin: 1.1rem 0;
+    font-size: 2rem;
+}
+.nav-container { /* Ensures the nav contents are centered in the header */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 60px;
+    text-align: center;
+}
+.content {
+    animation: fadeIn 2s;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.theme-changer {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #444;
+    color: #fff;
+    padding: 0.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s, background 0.3s, color 0.3s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    z-index: 1001;
+}
+body.light-mode .theme-changer {
+    background: rgb(255, 255, 255);
+    color: #333;
+}
+.theme-changer:hover {
+    transform: scale(1.1);
+}
+.theme-changer i {
+    transition: color 0.3s;
+}
+
+.light-mode {
+    background: rgb(211, 216, 246);
+    color: #333;
+}
+footer {
+    background-color:white;
+    color: black;
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+}
+.intro-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 100px 20px;
+    margin-top: 50px;
+}
+.intro-text, .intro-img {
+    flex-basis: 50%;
+}
+
+.intro-img img {
+    max-width: 60%; /* Adjust if necessary to control the image size */
+    height: auto; /* Maintains the aspect ratio of the image */
+    margin: auto; /* Centers the image vertically and horizontally within .intro-img */
+}
+.about-section {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center-align children */
+    text-align: center; /* Center-align text for the heading */
+    padding: 50px 20px; /* Adjust padding as needed */
+}
+
+.section-heading {
+    margin-top: 10px;
+    color: #8060ff; /* Adjust the color if needed */
+    width: 100%;
+    text-align: center;
+    font-family: 'Cinzel', serif;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 20px 0; /* Adjust padding as needed for spacing */
+    font-size: 2rem; /* Adjust font size as needed */
+}
+.projects-section {
+    display: flex;
+    flex-direction: column; /* This ensures content flows from top to bottom */
+    align-items: center; /* This centers the content horizontally */
+    justify-content: flex-start; /* This aligns the content to the top of the container */
+}
+/* Encapsulate text and image in a container for horizontal alignment */
+.about-content {
+    display: flex;
+    justify-content: space-between; /* This will space out the text and image */
+    align-items: center; /* Keeps items vertically aligned */
+    width: 100%; /* Ensures the container takes full width of its parent */
+    max-width: 1200px; /* You can adjust this to control the max size of this section */
+    margin: auto; /* This will help center the content if it doesn't take full width */
+}
+
+.about-text, .about-img {
+    flex-basis: 50%; /* Initially assigns equal space to both, adjust as needed */
+    padding: 15px; /* Adds some spacing inside each container */
+}
+
+.about-img img {
+    max-width: 50%; /* Makes the image responsive to the container size */
+    height: auto; /* Maintains the aspect ratio of the image */
+    border-radius: 20%; /* Keeps the styling for rounded corners */
+}
+
+main hr{
+    border:0;
+    background: #8060ff;
+    height: 1.2px;
+    margin: 40px 84px;
+
+}
+
+.highlight, #typed {
+    color:#8060ff;
+}
+.intro-buttons {
+    display: flex;
+    flex-wrap: wrap; /* Allow buttons to wrap instead of squeezing into one line */
+    justify-content: center; /* Center-align buttons */
+    gap: 10px; /* Add space between buttons when they wrap */
+}
+
+/* Buttons General Style */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none;
+    color: white;
+    margin: 10px;
+    min-width: 180px; /* Set a minimum width to prevent squeezing */
+    box-sizing: border-box;
+}
+
+/* Primary Button Style */
+.btn-primary {
+    background-color: #8060ff;
+}
+
+.btn-primary:hover {
+    background-color: #6650cc;
+    transform: translateY(-2px);
+}
+
+/* Secondary Button Style */
+.btn-secondary {
+    background-color: #444;
+}
+
+.btn-secondary:hover {
+    background-color: #333;
+    transform: translateY(-2px);
+}
+
+
+#skillsContainer {
+    font-family: 'Arial', sans-serif;
+}
+
+.branch {
+    cursor: pointer;
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #8060ff;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.branch:hover {
+    background-color: #6650cc;
+}
+
+.leaves {
+    list-style-type: none;
+    padding-left: 20px;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.5s ease-out;
+}
+
+.leaves li {
+    margin: 5px 0;
+    padding: 10px;
+    background-color: #eee;
+    color: #333;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.leaves li:hover {
+    background-color: #ddd;
+    transform: translateX(10px);
+}
+
+/* Dialogflow Messenger Customization */
+df-messenger {
+    z-index: 1010; /* Higher than the navbar's z-index */
+    position: relative;
+    --df-messenger-bot-message: #25044f; /* Background color of bot messages */
+    --df-messenger-button-titlebar-color: #8060ff; /* Color of the title bar */
+    --df-messenger-chat-background-color: #ffffff; /* Chat window background color */
+    --df-messenger-font-color: white; /* Font color */
+    --df-messenger-send-icon: #8060ff; /* Send button color */
+    --df-messenger-user-message: #444; /* Background color of user messages */
+  }
+  
+#pinwheelContainer {
+    position: relative;
+    height: 600px; /* Adjust as needed */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bubble {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #8060ff;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.5s, transform 0.5s;
+}
+
+.bubble:hover {
+    transform: scale(1.3); /* Increase this value for a bigger hover effect */
+    background-color: #6650cc;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.skill-modal-content {
+    text-align: center;
+}
+
+.skill-modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.skill-name {
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.skill-list {
+    list-style: none;
+    padding: 0;
+}
+
+.skill-list li {
+    margin-bottom: 5px;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+.skill-modal {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1050;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    animation: slideDown 0.5s ease-out forwards;
+}
+/* Add to your existing CSS */
+.skill-modal ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 15px;
+    padding: 20px;
+}
+
+.skill-modal li {
+    background: #8060ff;
+    border: 2px solid #8060ff;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.skill-modal li:hover {
+    transform: translateY(-5px);
+    border-color: #6650cc;
+}
+
+.light-mode .skill-modal li {
+    background: #ebecf0;
+    color: #333;
+}
+
+/* Ensure modal content is properly styled */
+.skill-modal {
+    color: #ffffff;
+    background: #25044f;
+}
+
+.light-mode .skill-modal {
+    background: #ebecf0;
+    color: #333;
+}
+
+
+#projects-carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.5s ease;
+  }
+  .project {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #8060ff;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 450px; /* Maximum width to ensure consistency */
+    padding: 20px;
+    margin: 0 auto; /* Center the projects within the carousel */
+    transition: transform 0.5s ease;
+    cursor: pointer;
+    transform: scale(0.6); /* Smaller size by default */
+    opacity: 0.6;
+  }
+  
+  .project-img {
+    width: 60%; /* Responsive image width */
+    height: auto; /* Maintain aspect ratio */
+    margin: 20px auto; /* Center the image vertically */
+    border-radius: 50%; /* Circular image */
+  }
+  
+  .project-title, .project-description {
+    text-align: center;
+    margin: 10px 0; /* Spacing above and below */
+  }
+  
+  .project-links {
+    margin: 20px 0; /* Spacing above and below */
+    display: flex;
+    justify-content: space-between; /* Keep links at either end */
+    flex-wrap: nowrap; /* Prevents buttons from wrapping */
+    gap: 10px; /* Provides spacing between buttons */
+    padding: 0 10px; /* Prevents links from touching the project box edges */
+  }
+  
+  .project-links a {
+    flex: 1; /* Allows buttons to grow and fill the available space */
+    margin: 0 5px; /* Ensures there's a little space between buttons */
+    padding: 8px 12px; /* Sufficient padding for tap targets */
+    white-space: nowrap; /* Prevents text from wrapping inside buttons */
+    overflow: hidden; /* Hide overflow text */
+    text-overflow: ellipsis; /* Add ellipsis to overflowing text */
+    background-color: #45319f; /* Button background color */
+    color: white; /* Button text color */
+    border-radius: 5px; /* Rounded corners for the buttons */
+    text-decoration: none; /* Removes underline */
+    text-align: center; /* Center the text inside buttons */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transition for hover effects */
+  }
+  
+  .project-links a:hover {
+    background-color: #342774; /* Darker shade on hover */
+    transform: translateY(-2px); /* Creates a slight lift effect */
+  }
+  
+  
+  .focused {
+    transform: scale(1); /* Larger when focused */
+    opacity: 1;
+  }
+  
+
+  .project .project-title,
+  .project .project-description,
+  .project .project-links {
+    display: none; /* Hide these elements by default */
+  }
+  
+  .project.focused .project-title,
+  .project.focused .project-description,
+  .project.focused .project-links {
+    display: block; /* Only show them for the focused project */
+  }
+  .project.hidden {
+    display: none; /* Hide projects not in the middle three */
+}
+
+.projects-carousel {
+    overflow: hidden; /* Prevent overflowed projects from being visible */
+}
+
+ 
+
+@media (max-width: 768px) {
+    .intro-section {
+        flex-direction: column;
+    }
+    .intro-text, .intro-img {
+        flex-basis: 100%;
+    }
+    nav .right ul {
+        display: flex;
+        flex-direction: row; /* Ensure horizontal layout */
+        justify-content: center; /* Center items if needed */
+        align-items: center; /* Align items vertically in the center */
+    }
+
+    nav ul li {
+        margin-right: 10px; /* Adjust for smaller screens */
+    }
+
+    /* Ensure the nav itself is fully visible and items don't wrap */
+    nav {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
+    .about-content {
+        flex-direction: column; /* Stacks text and image vertically on smaller screens */
+    }
+
+    .about-text, .about-img {
+        flex-basis: 100%; /* Allows each to take full width of the container */
+    }
+
+    .about-img img {
+        max-width: 30%; /* Adjust this value as needed */
+        margin: 0 auto; /* Center the image */
+    }
+    .btn {
+        padding: 10px 15px; /* Adjust button padding for smaller screens */
+    }
+    .project {
+        transform: scale(0.8); /* Smaller scale for all projects */
+        max-width: 300px; /* Adjust max-width for smaller screens */
+        margin: 10px auto; /* Ensure some margin around the projects */
+    }
+
+    .focused {
+        transform: scale(1); /* Larger scale for the focused project */
+        opacity: 1;
+        max-width: 350px; /* Slightly larger max-width for emphasis */
+    }
+
+    /* Ensures projects carousel fits the screen */
+    #projects-carousel {
+        flex-direction: column; /* Stack projects vertically */
+        align-items: center; /* Center-align the projects */
+    }
+
+    .project:not(.focused) {
+        /* Slightly reduce the opacity of non-focused projects for emphasis */
+        opacity: 0.5;
+    }
+
+    .project-img {
+        width: 80%; /* Larger images on small screens */
+      }
+    
+    
+      .project-links a {
+        padding: 6px 10px; /* Adjust padding for smaller screens */
+      }
+      .projects-section {
+        /* Adjust layout for small screens */
+        flex-direction: column;
+    }
+}

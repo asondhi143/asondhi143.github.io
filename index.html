@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arpit - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Proza+Libre:ital,wght@0,400;1,700&family=Spectral&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="theme-changer" class="theme-changer"><i class="fas fa-moon"></i></div>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="left"><h1>Arpit's Portfolio</h1></div>
+                <div class="right">
+                    <ul>
+                        <li><a href="#introduction">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section id="introduction" class="section intro-section">
+            <div class="intro-text">
+                <h2>Hi, I'm <span class="highlight">Arpit</span>,</h2>
+                <h2>and I am a passionate </h2>
+                <h2><span id="typed"></span></h2>
+                <br><br><br><br>
+                <div class="intro-buttons">
+                    <a href="https://www.linkedin.com/in/asondhi143" target="_blank" class="btn btn-primary">Visit LinkedIn</a>
+                    <a href="assets/pdf/Resume-vMarch2024.pdf" download="Resume-vMarch2024.pdf" class="btn btn-secondary">Download Resume</a>
+                </div>
+            </div>
+            <div class="intro-img">
+                <img src="assets/images/side-pic.png" alt="Side Picture">
+            </div>
+        </section>
+        <hr>
+        <section id="about" class="section about-section">
+            <h2 class="section-heading">ABOUT/SKILLS</h2>
+            <div class="about-content"> 
+                <div id="pinwheelContainer"></div>          
+                <div class="about-img">
+                    <h2>It's Me!</h2>
+                    <img src="assets/images/Arpit.jpeg" alt="my picture">
+                </div>
+                
+            </div>
+        </section>        
+        <hr>
+
+        <section id="projects" class="section projects-section">
+            <h2 class="section-heading">My Projects</h2>
+            <div id="projects-carousel" class="projects-carousel">
+                <div class="project focused" onclick="rotateCarousel(this)" data-index="0">
+                    <h3 class="project-title">ParkSense: Ultrasonic Bus Aid</h3>
+                    <img src="assets/images/BusParking-WCMProject.png" alt="Bus Parking Sensor" class="project-img"/>
+                    <p class="project-description"> Leveraging Raspberry Pi and ultrasonic sensors, this TTC-themed parking aid project demonstrates advanced skills in embedded systems, IoT integration, and real-time data processing, providing safer urban transit solutions.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/asondhi143/Bus-Parking-Sensors" target="_blank" class="source-code">Github</a>
+                        <a href="assets/pdf/WCM-BusPark-Manual.pdf" download="WCM-BusPark-Manual.pdf" class="youtube">Documentation</a>
+                    </div>
+                </div>
+                <div class="project" onclick="rotateCarousel(this)" data-index="1">
+                    <h3 class="project-title">Car Rental Project</h3>
+                    <img src="assets/images/CarRentalProject.png" alt="Project Car Rental" class="project-img"/>
+                    <p class="project-description">A showcase of my skills in C#, Windows Forms, and MS Access Database, demonstrating efficient UI design and database management through a streamlined car rental application.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/asondhi143/Car_Rental_Project" target="_blank" class="source-code">Github</a>
+                        <a href="assets/pdf/CarRental-Manualv2.pdf" download="CarRental-Manualv2.pdf" class="youtube">User Manual</a>
+                    </div>
+                </div>
+                <div class="project" onclick="rotateCarousel(this)" data-index="2">
+                    <h3 class="project-title">Facial Recognition Based Door Access System</h3>
+                    <img src="assets/images/FacialRecognitionProject.png" alt="Project Facial Recognition" class="project-img"/>
+                    <p class="project-description">
+                        The Facial Recognition-Based Door Access System showcases a seamless blend of skills in AI, IoT, and web development, utilizing technologies like OpenCV, Python, and Flask on a Raspberry Pi platform. This project highlights expertise in embedding advanced facial recognition for enhanced security and user management, demonstrating innovative solutions in secure access control.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/asondhi143/FacialRecognition-RPi" target="_blank" class="source-code">Github</a>
+                        <a href="https://youtu.be/Cuhrp1k-5A0" target="_blank" class="youtube">YouTube</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <hr>
+
+        <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+                <df-messenger
+                intent="WELCOME"
+                chat-title="Arpitron"
+                agent-id="153788a1-d10f-40fc-b5a6-e20e9c7a6e33"
+                chat-icon="assets/images/arpitron.png"
+                language-code="en"
+                ></df-messenger>
+
+        
+    </main>
+    <footer>
+        <p>© 2024 Arpit Sondhi. All rights reserved.</p>
+    </footer>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>
