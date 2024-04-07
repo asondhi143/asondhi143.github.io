@@ -1,8 +1,28 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.querySelector('.hamburger');
+    const navUL = document.querySelector('.nav-container .right ul');
+    const navLinks = document.querySelectorAll('.nav-container .right ul li a');
+
+    hamburger.addEventListener('click', () => {
+        navUL.classList.toggle('active');
+    });
+
+    // Hide the menu after clicking on a nav link
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navUL.classList.remove('active');
+        });
+    });
+});
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
     initThemeChanger();
     initTypedEffect();
     initPinwheel();
     initializeCarouselFocus();
+    adjustBubblesForScreenSize();
 
 });
 
@@ -22,7 +42,9 @@ function initTypedEffect() {
         typeSpeed: 50,
         backSpeed: 25,
         loop: true,
+        showCursor: false // Add this line to hide the cursor
     });
+    
 }
 
 function initPinwheel() {
@@ -146,3 +168,24 @@ function updateProjectVisibility() {
         }
     });
 }
+
+function adjustBubblesForScreenSize() {
+    const pinwheelContainer = document.getElementById('pinwheelContainer');
+    const bubbles = pinwheelContainer.querySelectorAll('.bubble');
+
+    if (window.innerWidth < 768) {
+        // For smaller screens, adjust bubble layout
+        bubbles.forEach(bubble => {
+            bubble.style.transform = 'none'; // Clear any transform
+        });
+    } else {
+        // For larger screens, apply original layout logic
+        bubbles.forEach((bubble, index, arr) => {
+            const angle = (index / arr.length) * 2 * Math.PI;
+            bubble.style.transform = `translate(${Math.cos(angle) * 200}px, ${Math.sin(angle) * 200}px)`;
+        });
+    }
+}
+
+// Listen for resize events
+window.addEventListener('resize', adjustBubblesForScreenSize);

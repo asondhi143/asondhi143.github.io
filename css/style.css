@@ -24,48 +24,6 @@ header {
     color:white;
 }
 
-nav {
-    width: 100%;
-    max-width: 1200px; /* Adjust based on your preference */
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color:#8060ff;
-}
-
-nav .left {
-    flex-grow: 1;
-    font-size: 1.2rem;
-}
-
-nav .right {
-    display: flex;
-    justify-content: flex-end;
-    flex-grow: 3;
-}
-
-nav ul {
-    display: flex;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-nav ul li {
-    margin-right: 20px; /* Adjust spacing between menu items */
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    padding: 10px; /* Adjust padding as needed */
-}
-
-
-nav ul li a:hover {
-    color:#8060ff;
-}
 h3 {
     font-family: 'Proza Libre', sans-serif;
 }
@@ -77,14 +35,83 @@ h2 {
     margin: 1.1rem 0;
     font-size: 2rem;
 }
-.nav-container { /* Ensures the nav contents are centered in the header */
+
+/* Add to your existing CSS */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+img, iframe, video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Make sure all containers adjust their size properly */
+.container, .section, .nav-container, .projects-carousel, .about-content {
+    width: 100%;
+    box-sizing: border-box; /* Ensures padding and borders are included in the element's total width and height */
+    overflow: hidden; /* Prevents children from causing overflow */
+}
+
+/* Fix for any specific elements that may cause overflow */
+.specific-element {
+    max-width: 100%; /* Adjust this class to target any specific elements causing issues */
+}
+
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    max-width: 1200px;
-    margin: auto;
 }
+
+nav .left {
+    margin-right: auto; /* Push everything else to the right */
+}
+
+nav .right ul {
+    display: flex;
+    padding: 0;
+    list-style: none;
+    margin-left: auto; /* Push the menu items to the far right */
+}
+
+nav ul li {
+    padding: 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    color: #8060ff;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.hamburger i {
+    color: #fff;
+    font-size: 24px;
+}
+
 
 .section {
     display: flex;
@@ -100,6 +127,12 @@ h2 {
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
+}
+.typed-container {
+    min-height: 150px; /* Adjust based on your content's need */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .theme-changer {
@@ -257,42 +290,6 @@ main hr{
     font-family: 'Arial', sans-serif;
 }
 
-.branch {
-    cursor: pointer;
-    padding: 10px;
-    margin: 5px 0;
-    background-color: #8060ff;
-    color: white;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-.branch:hover {
-    background-color: #6650cc;
-}
-
-.leaves {
-    list-style-type: none;
-    padding-left: 20px;
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height 0.5s ease-out;
-}
-
-.leaves li {
-    margin: 5px 0;
-    padding: 10px;
-    background-color: #eee;
-    color: #333;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-.leaves li:hover {
-    background-color: #ddd;
-    transform: translateX(10px);
-}
 
 /* Dialogflow Messenger Customization */
 df-messenger {
@@ -538,6 +535,62 @@ df-messenger {
     .skill-modal {
         width: 95%; /* Make the modal wider on smaller screens */
     }
+    .nav-container {
+        display: flex;
+        align-items: center; /* This will vertically align the children */
+        justify-content: space-between; /* This spreads out the child elements */
+        padding: 0 20px; /* Adjust padding as necessary */
+    }
+    
+
+    .nav-container .right ul {
+        display: none;
+        flex-direction: column;
+        background-color: #222; /* Adjust if you have a different navbar background color */
+        position: absolute;
+        top: 100%; /* Position it below the navbar */
+        right: 0;
+        width: 100%; /* Full width */
+        text-align: center;
+    }
+
+    /* When the menu is active, display it */
+    .nav-container .right ul.active {
+        display: block;
+    }
+
+    .hamburger {
+        display: block;
+        position: relative; /* Adjust based on your layout */
+        align-self: center; /* Aligns the icon vertically center */
+        margin-left: auto; /* Pushes it to the right */
+        z-index: 1002; /* Ensures it's above other elements */
+    }
+    
+
+    /* Additional styling to ensure the theme changer doesn't overlap with the hamburger icon */
+    .theme-changer {
+        z-index: 1002; /* Make sure it's above everything else */
+        position: fixed; /* Ensure it doesn't move out of view */
+        top: 20px;
+        right: 20px; /* Adjust if necessary */
+    }
+    
+
+    .right ul {
+        display: none; /* Hide the menu items initially */
+        flex-direction: column;
+        background-color: #222; /* Match the navbar background */
+        padding-top: 10px; /* Add some spacing */
+        position: absolute;
+        right: 0;
+        top: 60px; /* Adjust based on your header height */
+        width: 100%; /* Take the full width */
+    }
+
+    .right ul.active {
+        display: block; /* Show menu when active */
+    }
     nav .right ul {
         display: flex;
         flex-direction: row; /* Ensure horizontal layout */
@@ -554,6 +607,8 @@ df-messenger {
         flex-wrap: nowrap;
         justify-content: space-between;
     }
+
+
     .about-content {
         flex-direction: column; /* Stacks text and image vertically on smaller screens */
     }
@@ -562,17 +617,19 @@ df-messenger {
         flex-basis: 100%; /* Allows each to take full width of the container */
     }
     #pinwheelContainer {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 10px;
+        justify-items: center;
+        padding: 20px;
     }
 
     .bubble {
-        width: 80px; /* Reduce size */
-        height: 80px; /* Reduce size */
-        margin: 5px; /* Add some margin for spacing */
-        font-size: 0.8em; /* Adjust font size inside the bubble */
+        width: 100px; /* Adjust based on preference */
+        height: 100px; /* Maintain aspect ratio */
+        margin: 0; /* Reset margin */
+        position: relative; /* No need for absolute positioning */
+        transform: none; /* Clear transformations */
     }
     .about-img img {
         max-width: 30%; /* Adjust this value as needed */
@@ -581,44 +638,26 @@ df-messenger {
     .btn {
         padding: 10px 15px; /* Adjust button padding for smaller screens */
     }
-
-    .focused {
-        transform: scale(1); /* Larger scale for the focused project */
-        opacity: 1;
-        max-width: 350px; /* Slightly larger max-width for emphasis */
+    #projects-carousel {
+        flex-direction: column; /* Align projects vertically */
+        align-items: center; /* Center-align projects */
     }
-
-    /* Ensures projects carousel fits the screen */
 
     #projects-carousel .project {
-        max-width: 95%; /* Allow the project to occupy more width */
-        margin: 10px auto; /* Center the project */
-        transform: scale(1); /* Reset any scaling */
+        width: 90%; /* Adjust width to fit the smaller screen */
+        transition: transform 0.3s ease; /* Smooth transition for scaling */
+        margin-bottom: 5px; /* Minimize space between projects */
     }
 
-    #projects-carousel {
-        overflow-x: auto; /* Allow horizontal scrolling */
-        display: flex;
-        flex-wrap: nowrap; /* Keep items in a single row */
+    #projects-carousel .project:not(.focused) {
+        transform: scale(0.5); /* Reduce size of unfocused projects */
+        opacity: 0.5; /* Dim unfocused projects */
+        /* Keep the margin consistent for simplicity and closeness */
     }
 
-    .project-img {
-        max-width: 100%; /* Ensure the image fits within the project container */
-    }
-    .project {
-        width: 80%; /* Adjust width for smaller screens */
-        min-width: 250px; /* Ensure projects don't get too small */
-        margin-right: 20px; /* Space between projects */
-    }
-    .project:not(.focused) {
-        /* Slightly reduce the opacity of non-focused projects for emphasis */
-        opacity: 0.5;
-    }
-      .project-links a {
-        padding: 6px 10px; /* Adjust padding for smaller screens */
-      }
-      .projects-section {
-        /* Adjust layout for small screens */
-        flex-direction: column;
+    .project.focused {
+        transform: scale(1); /* Highlight the focused project */
+        opacity: 1; /* Make focused project fully opaque */
+        /* Maintain the same margin to ensure closeness */
     }
 }
