@@ -23,9 +23,10 @@ document.addEventListener('DOMContentLoaded', function() {
     initPinwheel();
     initializeCarouselFocus();
     adjustBubblesForScreenSize();
+ 
+    generateStars(250); 
 
 });
-
 function initThemeChanger() {
     const themeChanger = document.getElementById('theme-changer');
     themeChanger.addEventListener('click', function() {
@@ -33,9 +34,49 @@ function initThemeChanger() {
         const icon = this.querySelector('i');
         icon.classList.toggle('fa-sun');
         icon.classList.toggle('fa-moon');
+        
+        // Adjust star color for theme
+        const stars = document.querySelectorAll('.star');
+        stars.forEach(star => {
+            if (document.body.classList.contains('light-mode')) {
+                star.style.backgroundColor = '#333';
+            } else {
+                star.style.backgroundColor = '#fff';
+            }
+        });
     });
 }
 
+function generateStars(numberOfStars) {
+    const universe = document.getElementById('stars'); // Ensure there's a <div id="stars"></div> in HTML
+
+    for (let i = 0; i < numberOfStars; i++) {
+        let star = document.createElement('div');
+        star.classList.add('star');
+
+        // Determine size and opacity
+        const isLargeStar = Math.random() < 0.1; // 10% chance for a star to be large
+        const size = isLargeStar ? (Math.random() * 2 + 2) : (Math.random() * 1.5 + 0.5); // Large stars: 2-4px, Small stars: 0.5-2px
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+        star.style.opacity = isLargeStar ? "1" : `${Math.random() * 0.5 + 0.1}`; // Large stars: full opacity, Small stars: 0.1-0.6
+
+        // Position stars randomly in the viewport
+        const posX = Math.random() * window.innerWidth;
+        const posY = Math.random() * window.innerHeight;
+        star.style.left = `${posX}px`;
+        star.style.top = `${posY}px`;
+
+        // Set animation duration (speed of movement)
+        const duration = isLargeStar ? (Math.random() * 20 + 30) : (Math.random() * 10 + 20); // Large stars move slower
+        star.style.animationDuration = `${duration}s`;
+
+        universe.appendChild(star);
+    }
+}
+
+  
+  
 function initTypedEffect() {
     new Typed('#typed', {
         strings: ['Tech Enthusiast.', 'Software Developer.', 'Technical Writer.', 'IT Technologist.', 'Electronics Engineer.'],

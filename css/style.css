@@ -46,6 +46,28 @@ img, iframe, video {
     max-width: 100%;
     height: auto;
 }
+#stars {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.star {
+    position: absolute;
+    border-radius: 50%;
+    background-color: #fff;
+    animation: move linear infinite;
+}
+
+@keyframes move {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    100% { transform: translate(0, -100vh) rotate(360deg); } /* Move up and rotate for effect */
+}
+
 
 /* Make sure all containers adjust their size properly */
 .container, .section, .nav-container, .projects-carousel, .about-content {
@@ -241,8 +263,16 @@ main hr{
 }
 
 .highlight, #typed {
-    color:#8060ff;
+    font-weight: 900; /* Bold text */
+    font-size: 2.2rem; /* Larger text size */
+    background: linear-gradient(45deg, #850bff, #b21fc2, #445aff, #bb3ef1); /* Bright and vivid gradient */
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent; /* Necessary for gradient text */
 }
+
+
+
 .intro-buttons {
     display: flex;
     flex-wrap: wrap; /* Allow buttons to wrap instead of squeezing into one line */
@@ -625,8 +655,8 @@ df-messenger {
     }
 
     .bubble {
-        width: 100px; /* Adjust based on preference */
-        height: 100px; /* Maintain aspect ratio */
+        width: 120px; /* Adjust based on preference */
+        height: 120px; /* Maintain aspect ratio */
         margin: 0; /* Reset margin */
         position: relative; /* No need for absolute positioning */
         transform: none; /* Clear transformations */
